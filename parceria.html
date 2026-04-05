@@ -1,273 +1,169 @@
-import React from 'react';
-import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
-  AreaChart, Area, Cell
-} from 'recharts';
-import { 
-  TrendingUp, Users, Target, ShieldCheck, 
-  ShoppingCart, Award, ArrowUpRight,
-  Globe, MousePointer2, DollarSign, Phone, ExternalLink,
-  Bell, Zap, BarChart3, CheckCircle2
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Inteligência - Chocadeira Eficiente</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/recharts/umd/Recharts.js"></script>
+    <script src="https://unpkg.com/lucide-react"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#f1f5f9]">
+    <div id="root"></div>
 
-const App = () => {
-  // DADOS REAIS FILTRADOS (SOMENTE BRASIL E HUMANOS)
-  const marketShareData = [
-    { name: 'Artesanal / Outras', value: 45, color: '#94a3b8' },
-    { name: 'ChocaMaisTop', value: 38, color: '#3b82f6' },
-    { name: 'Eclopinto', value: 22, color: '#10b981' },
-    { name: 'Premium Ecológica', value: 18, color: '#f59e0b' },
-    { name: 'CHOCAAVES', value: 12, color: '#ef4444' },
-    { name: 'Inchoc', value: 8, color: '#8b5cf6' },
-  ];
+    <script type="text/babel">
+        const { 
+            BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
+            AreaChart, Area, Cell 
+        } = Recharts;
+        const { 
+            TrendingUp, Users, Target, ShieldCheck, 
+            ShoppingCart, Award, ArrowUpRight,
+            Globe, MousePointer2, DollarSign, Phone, ExternalLink,
+            Bell, Zap, BarChart3, CheckCircle2 
+        } = lucide;
 
-  const shopeeProducts = [
-    { name: 'Chocadeira 70 Ovos', clics: 42, label: 'Líder de Vendas' },
-    { name: 'Lâmpada Cerâmica', clics: 31, label: 'Acessório Top' },
-    { name: 'Termostato Digital', clics: 28, label: 'Peça de Reposição' },
-    { name: 'Higrômetro Pro', clics: 15, label: 'Precisão' },
-    { name: 'Bandeja Rolagem', clics: 12, label: 'Componente' },
-  ];
+        const App = () => {
+            const marketShareData = [
+                { name: 'Artesanal / Outras', value: 45, color: '#94a3b8' },
+                { name: 'ChocaMaisTop', value: 38, color: '#3b82f6' },
+                { name: 'Eclopinto', value: 22, color: '#10b981' },
+                { name: 'Premium Ecológica', value: 18, color: '#f59e0b' },
+                { name: 'CHOCAAVES', value: 12, color: '#ef4444' },
+                { name: 'Inchoc', value: 8, color: '#8b5cf6' },
+            ];
 
-  const admobStats = [
-    { label: 'Match Rate', value: '92.6%', desc: 'Demanda de Anúncios', icon: <Zap size={18}/> },
-    { label: 'Solicitações', value: '3.45k', desc: 'Volume de Chamadas', icon: <BarChart3 size={18}/> },
-    { label: 'Impressões', value: '1.67k', desc: 'Exposição Real', icon: <MousePointer2 size={18}/> },
-    { label: 'eCPM', value: 'US$ 0.72', desc: 'Valor do Tráfego', icon: <DollarSign size={18}/> },
-  ];
+            const shopeeProducts = [
+                { name: 'Chocadeira 70 Ovos', clics: 42, label: 'Líder de Vendas' },
+                { name: 'Lâmpada Cerâmica', clics: 31, label: 'Acessório Top' },
+                { name: 'Termostato Digital', clics: 28, label: 'Peça de Reposição' },
+                { name: 'Higrômetro Pro', clics: 15, label: 'Precisão' },
+                { name: 'Bandeja Rolagem', clics: 12, label: 'Componente' },
+            ];
 
-  return (
-    <div className="min-h-screen bg-[#f1f5f9] font-sans text-slate-900 p-4 md:p-10">
-      
-      {/* HEADER CORPORATIVO */}
-      <header className="max-w-7xl mx-auto mb-10">
-        <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border-b-8 border-orange-500 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-6">
-            <div className="w-20 h-20 bg-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-orange-200">
-              <span className="text-white font-black text-4xl italic">CE</span>
-            </div>
-            <div>
-              <h1 className="text-4xl font-black tracking-tighter text-slate-800 uppercase leading-none">
-                Chocadeira <span className="text-orange-600">Eficiente</span>
-              </h1>
-              <p className="text-slate-400 font-bold text-sm uppercase tracking-[0.2em] mt-1">
-                Data Intelligence by Eficiente Solutions
-              </p>
-            </div>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-end gap-2 text-slate-600">
-            <a href="https://eficientesolutions.dev.br/" target="_blank" className="flex items-center gap-2 font-black text-blue-600 hover:text-blue-700 transition-colors bg-blue-50 px-4 py-2 rounded-xl">
-              <ExternalLink size={18}/> eficientesolutions.dev.br
-            </a>
-            <p className="flex items-center gap-2 font-black bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl">
-              <Phone size={18}/> +55 (83) 92151-4706
-            </p>
-          </div>
-        </div>
-      </header>
+            const admobStats = [
+                { label: 'Match Rate', value: '92.6%', desc: 'Demanda de Anúncios', icon: <Zap size={18}/> },
+                { label: 'Solicitações', value: '3.45k', desc: 'Volume de Chamadas', icon: <BarChart3 size={18}/> },
+                { label: 'Impressões', value: '1.67k', desc: 'Exposição Real', icon: <MousePointer2 size={18}/> },
+                { label: 'eCPM', value: 'US$ 0.72', desc: 'Valor do Tráfego', icon: <DollarSign size={18}/> },
+            ];
 
-      <main className="max-w-7xl mx-auto space-y-8">
-        
-        {/* DASHBOARD DE KPIs PRINCIPAIS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center"><Users size={24}/></div>
-              <span className="text-xs font-black text-slate-400 uppercase">Downloads</span>
-            </div>
-            <h3 className="text-4xl font-black tracking-tighter">486</h3>
-            <p className="text-slate-400 text-xs font-bold mt-1 uppercase">Brasil / LATAM</p>
-          </div>
+            return (
+                <div className="p-4 md:p-10">
+                    <header className="max-w-7xl mx-auto mb-10">
+                        <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border-b-8 border-orange-500 flex flex-col md:flex-row justify-between items-center gap-6">
+                            <div className="flex items-center gap-6">
+                                <div className="w-20 h-20 bg-orange-600 rounded-3xl flex items-center justify-center shadow-2xl">
+                                    <span className="text-white font-black text-4xl italic">CE</span>
+                                </div>
+                                <div>
+                                    <h1 className="text-4xl font-black tracking-tighter text-slate-800 uppercase leading-none">
+                                        Chocadeira <span className="text-orange-600">Eficiente</span>
+                                    </h1>
+                                    <p className="text-slate-400 font-bold text-sm uppercase tracking-[0.2em] mt-1">
+                                        Data Intelligence by Eficiente Solutions
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex flex-col items-center md:items-end gap-2 text-slate-600">
+                                <a href="https://eficientesolutions.dev.br/" className="flex items-center gap-2 font-black text-blue-600 bg-blue-50 px-4 py-2 rounded-xl">
+                                    <ExternalLink size={18}/> eficientesolutions.dev.br
+                                </a>
+                                <p className="flex items-center gap-2 font-black bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl">
+                                    <Phone size={18}/> +55 (83) 92151-4706
+                                </p>
+                            </div>
+                        </div>
+                    </header>
 
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center"><Target size={24}/></div>
-              <span className="text-xs font-black text-slate-400 uppercase">Ativos (MAU)</span>
-            </div>
-            <h3 className="text-4xl font-black tracking-tighter">197</h3>
-            <div className="flex items-center gap-1 text-orange-500 text-xs font-bold mt-1">
-              <TrendingUp size={14}/> +57% Crescimento
-            </div>
-          </div>
+                    <main className="max-w-7xl mx-auto space-y-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div className="bg-white p-8 rounded-[2rem] shadow-sm">
+                                <Users className="text-blue-600 mb-4" size={24}/>
+                                <p className="text-slate-400 text-xs font-black uppercase">Downloads</p>
+                                <h3 className="text-4xl font-black">486</h3>
+                            </div>
+                            <div className="bg-white p-8 rounded-[2rem] shadow-sm">
+                                <Target className="text-orange-600 mb-4" size={24}/>
+                                <p className="text-slate-400 text-xs font-black uppercase">Ativos (MAU)</p>
+                                <h3 className="text-4xl font-black">197</h3>
+                            </div>
+                            <div className="bg-white p-8 rounded-[2rem] shadow-sm border-2 border-indigo-100">
+                                <Bell className="text-indigo-600 mb-4" size={24}/>
+                                <p className="text-slate-400 text-xs font-black uppercase">Entrega Push</p>
+                                <h3 className="text-4xl font-black text-indigo-600">94%</h3>
+                            </div>
+                            <div className="bg-slate-900 p-8 rounded-[2rem] text-white">
+                                <ShoppingCart className="text-orange-500 mb-4" size={24}/>
+                                <p className="text-white/40 text-xs font-black uppercase">Intenção de Compra</p>
+                                <h3 className="text-4xl font-black text-orange-500">22.6%</h3>
+                            </div>
+                        </div>
 
-          <div className="bg-white p-8 rounded-[2rem] shadow-sm border-2 border-indigo-100">
-            <div className="flex justify-between items-center mb-4">
-              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center"><Bell size={24}/></div>
-              <span className="text-xs font-black text-indigo-400 uppercase tracking-widest text-center">Notificações</span>
-            </div>
-            <h3 className="text-4xl font-black tracking-tighter text-indigo-600">94%</h3>
-            <p className="text-slate-400 text-xs font-bold mt-1 uppercase">Entrega OneSignal</p>
-          </div>
+                        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div className="lg:col-span-2 bg-white p-8 rounded-[2.5rem] shadow-sm border">
+                                <h2 className="text-2xl font-black uppercase mb-10 flex items-center gap-3">
+                                    <ShoppingCart className="text-orange-600"/> Demanda por Equipamento
+                                </h2>
+                                <div className="h-[300px]">
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <AreaChart data={shopeeProducts}>
+                                            <defs>
+                                                <linearGradient id="colorClic" x1="0" y1="0" x2="0" y2="1">
+                                                    <stop offset="5%" stopColor="#ea580c" stopOpacity={0.3}/>
+                                                    <stop offset="95%" stopColor="#ea580c" stopOpacity={0}/>
+                                                </linearGradient>
+                                            </defs>
+                                            <XAxis dataKey="name" hide />
+                                            <Tooltip contentStyle={{borderRadius: '20px', border: 'none'}} />
+                                            <Area type="monotone" dataKey="clics" stroke="#ea580c" strokeWidth={6} fill="url(#colorClic)" />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </div>
 
-          <div className="bg-slate-900 p-8 rounded-[2rem] shadow-lg text-white">
-            <div className="flex justify-between items-center mb-4">
-              <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center"><ShoppingCart size={24}/></div>
-              <span className="text-xs font-black text-white/40 uppercase text-center">Intenção</span>
-            </div>
-            <h3 className="text-4xl font-black tracking-tighter text-orange-500">22.6%</h3>
-            <p className="text-white/60 text-xs font-bold mt-1 uppercase">Conversão em Cliques</p>
-          </div>
-        </div>
+                            <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border">
+                                <h3 className="text-xs font-black text-slate-400 uppercase mb-6 tracking-widest">Sumário Shopee</h3>
+                                <div className="space-y-3">
+                                    {shopeeProducts.map((p, i) => (
+                                        <div key={i} className="p-4 bg-slate-50 rounded-2xl border border-slate-100 flex justify-between items-center">
+                                            <div>
+                                                <p className="text-[10px] font-black text-slate-400 uppercase">{p.label}</p>
+                                                <p className="font-black text-slate-800 text-sm">{p.name}</p>
+                                            </div>
+                                            <div className="text-right">
+                                                <p className="text-2xl font-black text-orange-600">{p.clics}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
 
-        {/* PRODUTOS E INTENÇÃO DE COMPRA */}
-        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-slate-100">
-            <div className="flex items-center justify-between mb-10">
-              <div>
-                <h2 className="text-2xl font-black uppercase tracking-tighter flex items-center gap-3">
-                  <ShoppingCart className="text-orange-600"/> Demanda por Equipamento
-                </h2>
-                <p className="text-slate-400 text-sm font-bold">Monitoramento de cliques orgânicos no Marketplace</p>
-              </div>
-            </div>
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={shopeeProducts}>
-                  <defs>
-                    <linearGradient id="colorClic" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#ea580c" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#ea580c" stopOpacity={0}/>
-                    </linearGradient>
-                  </defs>
-                  <XAxis dataKey="name" hide />
-                  <Tooltip contentStyle={{borderRadius: '20px', border: 'none', boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)'}} />
-                  <Area type="monotone" dataKey="clics" stroke="#ea580c" strokeWidth={6} fillOpacity={1} fill="url(#colorClic)" />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-            <h3 className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-6">Sumário de Performance</h3>
-            <div className="space-y-3">
-              {shopeeProducts.map((p, i) => (
-                <div key={i} className="group p-4 bg-slate-50 hover:bg-orange-600 rounded-2xl border border-slate-100 transition-all duration-300">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-xs font-black text-slate-400 group-hover:text-orange-200 uppercase">{p.label}</p>
-                      <p className="font-black text-slate-800 group-hover:text-white leading-tight">{p.name}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-2xl font-black text-orange-600 group-hover:text-white">{p.clics}</p>
-                      <p className="text-[10px] font-bold text-slate-400 group-hover:text-orange-100 uppercase">Cliques</p>
-                    </div>
-                  </div>
+                        <section className="bg-slate-900 p-12 rounded-[3rem] text-white shadow-2xl relative overflow-hidden">
+                            <div className="relative z-10 max-w-2xl mx-auto text-center">
+                                <h2 className="text-4xl font-black mb-6">Pronto para a Parceria?</h2>
+                                <p className="text-orange-100 text-lg mb-10">Dados reais, sem bots. Sua marca no topo do nicho de avicultura.</p>
+                                <div className="bg-white text-orange-600 px-10 py-5 rounded-2xl font-black text-xl shadow-xl inline-block">
+                                    +55 (83) 92151-4706
+                                </div>
+                            </div>
+                        </section>
+                    </main>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
+            );
+        };
 
-        {/* PODER DE MÍDIA - ADMOB E ONESIGNAL */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-            <h2 className="text-xl font-black uppercase mb-8 flex items-center gap-3">
-              <BarChart3 className="text-blue-600"/> Analytics Publicitário (AdMob)
-            </h2>
-            <div className="grid grid-cols-2 gap-4">
-              {admobStats.map((s, i) => (
-                <div key={i} className="p-5 bg-slate-50 rounded-3xl border border-slate-100">
-                  <div className="text-blue-600 mb-2">{s.icon}</div>
-                  <h4 className="text-2xl font-black leading-none mb-1">{s.value}</h4>
-                  <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest text-center md:text-left">{s.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
 
-          <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-            <h2 className="text-xl font-black uppercase mb-8 flex items-center gap-3 text-center md:text-left">
-              <Bell className="text-indigo-600"/> Engajamento OneSignal
-            </h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-indigo-50 rounded-2xl border border-indigo-100">
-                <div className="flex items-center gap-3 text-center md:text-left">
-                  <div className="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold">12%</div>
-                  <div>
-                    <p className="font-black text-sm text-indigo-900 leading-none">CTR Notificação</p>
-                    <p className="text-[10px] text-indigo-400 font-bold uppercase">Taxa de Clique Real</p>
-                  </div>
-                </div>
-                <ArrowUpRight className="text-indigo-600" />
-              </div>
-              <div className="flex items-center justify-between p-4 bg-emerald-50 rounded-2xl border border-emerald-100">
-                <div className="flex items-center gap-3 text-center md:text-left">
-                  <div className="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center font-bold">2k</div>
-                  <div>
-                    <p className="font-black text-sm text-emerald-900 leading-none">Impressões In-App</p>
-                    <p className="text-[10px] text-emerald-400 font-bold uppercase">Exposição de Banners</p>
-                  </div>
-                </div>
-                <CheckCircle2 className="text-emerald-600" />
-              </div>
-            </div>
-            <p className="text-[11px] text-slate-400 mt-6 leading-relaxed italic text-center md:text-left">
-              "Capacidade técnica para disparo de mensagens segmentadas em tempo real para 100% da base ativa."
-            </p>
-          </div>
-        </div>
-
-        {/* MARKET SHARE REAL */}
-        <section className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <h2 className="text-2xl font-black mb-10 flex items-center gap-3 uppercase tracking-tighter text-center md:text-left">
-            <ShieldCheck className="text-emerald-600" /> Share de Mercado: Dispositivos Ativos
-          </h2>
-          <div className="h-[400px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart layout="vertical" data={marketShareData} margin={{ left: 50, right: 30 }}>
-                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f5f9" />
-                <XAxis type="number" hide />
-                <YAxis 
-                  dataKey="name" 
-                  type="category" 
-                  axisLine={false} 
-                  tickLine={false} 
-                  tick={{ fill: '#64748b', fontSize: 12, fontWeight: 800 }}
-                  width={150}
-                />
-                <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ borderRadius: '15px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}/>
-                <Bar dataKey="value" radius={[0, 10, 10, 0]} barSize={28}>
-                  {marketShareData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </section>
-
-        {/* CALL TO ACTION FINAL */}
-        <section className="bg-gradient-to-br from-orange-600 to-orange-700 rounded-[3rem] p-10 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-4xl font-black mb-6 leading-tight tracking-tighter">Sua Marca no Centro da Criação de Aves.</h2>
-            <p className="text-orange-100 text-lg font-medium mb-10">
-              Estamos crescendo 50% ao mês com público 100% qualificado. Transforme o seu equipamento na recomendação oficial.
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              <div className="bg-white text-orange-600 px-10 py-5 rounded-2xl font-black text-xl shadow-xl hover:scale-105 transition-transform cursor-pointer">
-                FECHAR PARCERIA
-              </div>
-              <div className="flex flex-col items-center md:items-start text-white/80">
-                <p className="text-[10px] font-black uppercase tracking-widest">Atendimento Direto</p>
-                <p className="text-lg font-black">+55 (83) 92151-4706</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-[-10%] left-[-5%] w-64 h-64 bg-black/10 rounded-full blur-2xl"></div>
-        </section>
-
-      </main>
-
-      <footer className="max-w-7xl mx-auto py-12 text-center text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">
-        &copy; 2026 Eficiente Solutions | Analytics V4.0 Final
-      </footer>
-    </div>
-  );
-};
-
-export default App;
-
-      
