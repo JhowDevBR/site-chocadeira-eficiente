@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "br.dev.eficientesolutions.chocadeiraeficiente",
       "sha256_cert_fingerprints": [
-        "4A:08:27:BF:EA:5B:D6:CB:53:8F:D8:B4:EE:E1:F0:01:4F:14:3D:25:19:BB:9A:56:A1:8E:0D:AF:0B:86:6C:A2"
+        "4A:08:27:BF:EA:5B:D6:CB:53:8F:D8:B4:EE:E1:F0:01:4F:14:3D:25:19:BB:9A:56:A1:8E:0D:AF:0B:86:6C:A2",
+        "C2:F7:DB:1D:72:D2:58:61:62:D4:9D:72:A3:C2:7D:46:5F:00:4D:9F:39:C0:AB:B9:93:48:7E:6B:62:16:3E:D8"
       ]
     }
   }
