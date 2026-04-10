@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "route": "/.well-known/assetlinks.json",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    }
+  ],
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}
