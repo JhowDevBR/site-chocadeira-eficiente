@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "br.dev.eficientesolutions.chocadeiraeficiente",
+      "sha256_cert_fingerprints": [
+        "4A:08:27:BF:EA:5B:D6:CB:53:8F:D8:B4:EE:E1:F0:01:4F:14:3D:25:19:BB:9A:56:A1:8E:0D:AF:0B:86:6C:A2"
+      ]
+    }
+  }
+]
