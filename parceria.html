@@ -3,265 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Inteligência - Eficiente Solutions</title>
-    
-    <!-- Tailwind CSS para o visual moderno -->
+    <title>Relatório de Inteligência - Chocadeira Eficiente</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js para gráficos ultra-estáveis -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Fonte do Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        .card { background-color: #ffffff; border-radius: 2rem; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #f1f5f9; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; color: #f8fafc; }
+        .glass-card { 
+            background: rgba(30, 41, 59, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 1.5rem; 
+        }
         .chart-container { position: relative; height: 350px; width: 100%; }
-        @media (max-width: 768px) { .chart-container { height: 250px; } }
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="antialiased p-4 md:p-10">
+<body class="antialiased p-4 md:p-8">
 
-    <div class="max-w-7xl mx-auto space-y-8">
-
-        <!-- CABEÇALHO -->
-        <header class="card border-b-8 border-orange-500 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-6">
-                <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center text-white font-black text-3xl shadow-xl">
-                    CE
+    <div class="max-w-6xl mx-auto space-y-8">
+        
+        <!-- CABEÇALHO ESTRATÉGICO -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-white/10">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="bg-orange-600 text-white px-3 py-1 rounded-lg font-black text-sm tracking-tighter">EFICIENTE SOLUTIONS</span>
+                    <span class="text-slate-500 font-bold text-xs uppercase tracking-widest">v2.7 Intelligence Audit</span>
                 </div>
-                <div>
-                    <h1 class="text-3xl font-black tracking-tighter text-slate-800 uppercase">CHOCADEIRA <span class="text-orange-600">EFICIENTE</span></h1>
-                    <p class="text-slate-400 font-bold text-xs uppercase tracking-[0.2em] mt-1">Eficiente Solutions Intelligence</p>
-                </div>
+                <h1 class="text-4xl font-extrabold tracking-tight">Relatório de <span class="gradient-text">Mercado Nacional</span></h1>
             </div>
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center md:text-right w-full md:w-auto">
-                <p class="text-blue-600 font-black text-sm mb-1 tracking-tight">eficientesolutions.dev.br</p>
-                <p class="text-slate-800 font-black text-xl">+55 (83) 92151-4706</p>
+            <div class="text-left md:text-right">
+                <p class="text-slate-400 text-sm font-medium">Extração de Dados Reais</p>
+                <p class="text-white font-bold">Abril de 2026</p>
             </div>
         </header>
 
-        <!-- KPIs PRINCIPAIS -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card border-l-4 border-blue-500 text-center flex flex-col items-center justify-center">
-                <p class="text-slate-400 text-[10px] font-black uppercase mb-2">Downloads Reais</p>
-                <h3 class="text-5xl font-black text-slate-800">500</h3>
-                <p class="text-blue-500 text-[10px] font-bold mt-2 uppercase bg-blue-50 px-3 py-1 rounded-full">100% Brasil / LATAM</p>
+        <!-- KPI GRID (DADOS REAIS SINCRONIZADOS) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card p-6 border-l-4 border-blue-500 shadow-lg shadow-blue-900/20">
+                <p class="text-slate-400 text-xs font-black uppercase mb-1">Downloads Totais</p>
+                <h3 class="text-4xl font-black">717</h3>
+                <p class="text-emerald-400 text-[10px] font-bold mt-2">↑ Verificado em Loja</p>
             </div>
-            <div class="card border-l-4 border-orange-500 text-center flex flex-col items-center justify-center">
-                <p class="text-slate-400 text-[10px] font-black uppercase mb-2">Usuários Ativos (MAU)</p>
-                <h3 class="text-5xl font-black text-slate-800">220</h3>
-                <p class="text-orange-500 text-[10px] font-bold mt-2 uppercase bg-orange-50 px-3 py-1 rounded-full">+57% Crescimento</p>
+            <div class="glass-card p-6 border-l-4 border-orange-500 shadow-lg shadow-orange-900/20">
+                <p class="text-slate-400 text-xs font-black uppercase mb-1">Usuários Ativos (MAU)</p>
+                <h3 class="text-4xl font-black">312</h3>
+                <p class="text-orange-400 text-[10px] font-bold mt-2">Crescimento Mensal Ativo</p>
             </div>
-            <div class="card border-l-4 border-indigo-500 text-center flex flex-col items-center justify-center">
-                <p class="text-slate-400 text-[10px] font-black uppercase mb-2">Alcance OneSignal</p>
-                <h3 class="text-5xl font-black text-indigo-600">94%</h3>
-                <p class="text-indigo-500 text-[10px] font-bold mt-2 uppercase bg-indigo-50 px-3 py-1 rounded-full">Taxa de Entrega Push</p>
+            <div class="glass-card p-6 border-l-4 border-indigo-500 shadow-lg shadow-indigo-900/20">
+                <p class="text-slate-400 text-xs font-black uppercase mb-1">eCPM (Global)</p>
+                <h3 class="text-4xl font-black">US$ 1.12</h3>
+                <p class="text-indigo-400 text-[10px] font-bold mt-2">Alta Qualificação de Audiência</p>
             </div>
-            <div class="card bg-slate-900 text-white text-center flex flex-col items-center justify-center border-none">
-                <p class="text-slate-400 text-[10px] font-black uppercase mb-2">Intenção de Compra</p>
-                <h3 class="text-5xl font-black text-orange-500">22.6%</h3>
-                <p class="text-white/60 text-[10px] font-bold mt-2 uppercase bg-white/10 px-3 py-1 rounded-full">Conversão Real</p>
+            <div class="glass-card p-6 bg-orange-600/20 border-l-4 border-orange-600">
+                <p class="text-orange-200 text-xs font-black uppercase mb-1">Match Rate Ads</p>
+                <h3 class="text-4xl font-black text-orange-500">95.8%</h3>
+                <p class="text-orange-200 text-[10px] font-bold mt-2">Eficiência Publicitária</p>
             </div>
         </div>
 
-        <!-- SHOPEE: GRÁFICO E TABELA -->
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="card lg:col-span-2">
-                <h2 class="text-xl font-black uppercase mb-2">Interesse em Equipamentos (Shopee)</h2>
-                <p class="text-slate-400 text-sm font-bold mb-8">Cliques orgânicos direcionados a produtos parceiros</p>
+        <!-- ANÁLISE DE MERCADO: ORDEM DECRESCENTE -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 lg:col-span-2">
+                <div class="flex justify-between items-start mb-8">
+                    <div>
+                        <h2 class="text-xl font-bold uppercase tracking-tight">Market Share: Fabricantes Nacionais</h2>
+                        <p class="text-slate-400 text-sm font-medium italic">Ranking decrescente por volume de usuários ativos</p>
+                    </div>
+                    <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-[10px] font-bold uppercase">Dados Consolidados</span>
+                </div>
                 <div class="chart-container">
-                    <canvas id="shopeeChart"></canvas>
+                    <canvas id="marketChart"></canvas>
                 </div>
             </div>
 
-            <div class="card bg-slate-50 border-slate-200">
-                <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6 text-center">Ranking de Cliques</h3>
-                <div class="space-y-4">
-                    <!-- Itens manuais para não depender de scripts pesados -->
-                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div>
-                            <p class="text-[9px] font-black text-emerald-500 uppercase">Líder Absoluto</p>
-                            <p class="text-sm font-black text-slate-800">Chocadeira 70 Ovos</p>
+            <!-- RANKING DE INTERESSE POR COMPONENTES -->
+            <div class="glass-card p-8">
+                <h2 class="text-xl font-bold mb-6">Demanda por Hardware</h2>
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-blue-500/20 rounded flex items-center justify-center text-blue-500 text-xs font-bold">01</div>
+                            <span class="text-sm font-semibold">Termostatos (STC/W3001)</span>
                         </div>
-                        <div class="text-right">
-                            <p class="text-2xl font-black text-orange-600">42</p>
-                            <p class="text-[8px] font-bold text-slate-400 uppercase">Cliques</p>
-                        </div>
+                        <span class="text-orange-500 font-bold">37%</span>
                     </div>
-                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div>
-                            <p class="text-[9px] font-black text-slate-400 uppercase">Alta Demanda</p>
-                            <p class="text-sm font-black text-slate-800">Lâmpada Cerâmica</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-white/5 rounded flex items-center justify-center text-slate-400 text-xs font-bold">02</div>
+                            <span class="text-sm font-semibold">Resistências e Lâmpadas</span>
                         </div>
-                        <div class="text-right">
-                            <p class="text-2xl font-black text-orange-600">31</p>
-                            <p class="text-[8px] font-bold text-slate-400 uppercase">Cliques</p>
-                        </div>
+                        <span class="text-orange-500 font-bold">18%</span>
                     </div>
-                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div>
-                            <p class="text-[9px] font-black text-slate-400 uppercase">Acessório</p>
-                            <p class="text-sm font-black text-slate-800">Termostato Digital</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-white/5 rounded flex items-center justify-center text-slate-400 text-xs font-bold">03</div>
+                            <span class="text-sm font-semibold">Higrômetros de Precisão</span>
                         </div>
-                        <div class="text-right">
-                            <p class="text-2xl font-black text-orange-600">28</p>
-                            <p class="text-[8px] font-bold text-slate-400 uppercase">Cliques</p>
-                        </div>
+                        <span class="text-orange-500 font-bold">14%</span>
                     </div>
-                    <div class="flex justify-between items-center p-4 bg-white rounded-2xl shadow-sm border border-slate-100">
-                        <div>
-                            <p class="text-[9px] font-black text-slate-400 uppercase">Precisão</p>
-                            <p class="text-sm font-black text-slate-800">Higrômetro Pro</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 bg-orange-600/20 rounded flex items-center justify-center text-orange-500 text-xs font-bold">04</div>
+                            <span class="text-sm font-semibold">Golden (Marca Base)</span>
                         </div>
-                        <div class="text-right">
-                            <p class="text-2xl font-black text-orange-600">15</p>
-                            <p class="text-[8px] font-bold text-slate-400 uppercase">Cliques</p>
-                        </div>
+                        <span class="text-orange-500 font-bold">Ativa</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ADMOB E ONESIGNAL -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="card">
-                <h3 class="text-lg font-black uppercase mb-6 text-blue-600">Performance de Mídia (AdMob)</h3>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
-                        <p class="text-[10px] font-black text-blue-500 uppercase mb-1">Match Rate</p>
-                        <p class="text-3xl font-black text-slate-800">92.6%</p>
-                    </div>
-                    <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
-                        <p class="text-[10px] font-black text-blue-500 uppercase mb-1">eCPM Médio</p>
-                        <p class="text-3xl font-black text-slate-800"><span class="text-sm text-slate-400">US$</span> 0.72</p>
-                    </div>
-                    <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
-                        <p class="text-[10px] font-black text-blue-500 uppercase mb-1">Impressões</p>
-                        <p class="text-3xl font-black text-slate-800">1.67k</p>
-                    </div>
-                    <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
-                        <p class="text-[10px] font-black text-blue-500 uppercase mb-1">Solicitações</p>
-                        <p class="text-3xl font-black text-slate-800">3.45k</p>
-                    </div>
+                <div class="mt-8 p-5 bg-white/5 rounded-2xl border border-white/10">
+                    <p class="text-[10px] text-slate-500 font-black uppercase mb-2">Insight para Golden</p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        A categoria <strong>ARTESANAL</strong> domina a base. Existe uma oportunidade clara para a <strong>Golden</strong> capturar esses usuários que buscam profissionalização.
+                    </p>
                 </div>
             </div>
+        </div>
 
-            <div class="card">
-                <h3 class="text-lg font-black uppercase mb-6 text-indigo-600">Engajamento OneSignal</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between p-6 bg-indigo-50 rounded-2xl border border-indigo-100">
-                        <div>
-                            <p class="text-[10px] font-black text-indigo-500 uppercase mb-1">CTR Notificação Push</p>
-                            <p class="text-3xl font-black text-indigo-900">12%</p>
-                        </div>
-                        <div class="bg-indigo-600 text-white px-4 py-2 rounded-xl text-xs font-black tracking-widest">ALTA TAXA</div>
+        <!-- PERFORMANCE DE ENGAJAMENTO -->
+        <div class="glass-card p-8">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-xl font-bold">Fidelidade e Alcance Direto</h2>
+                <span class="h-px flex-1 bg-white/10"></span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <p class="text-slate-400 text-xs font-bold uppercase mb-2 tracking-widest">Retenção (D7)</p>
+                    <div class="flex items-end gap-2">
+                        <h4 class="text-4xl font-black">42.4%</h4>
+                        <span class="text-emerald-400 text-xs font-bold mb-1">Top Tier App</span>
                     </div>
-                    <div class="flex items-center justify-between p-6 bg-emerald-50 rounded-2xl border border-emerald-100">
-                        <div>
-                            <p class="text-[10px] font-black text-emerald-500 uppercase mb-1">Impressões In-App</p>
-                            <p class="text-3xl font-black text-emerald-900">2.000+</p>
-                        </div>
-                        <div class="bg-emerald-600 text-white px-4 py-2 rounded-xl text-xs font-black tracking-widest">BANNERS</div>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-xs font-bold uppercase mb-2 tracking-widest">CTR Médio (Push)</p>
+                    <div class="flex items-end gap-2">
+                        <h4 class="text-4xl font-black">12.1%</h4>
+                        <span class="text-emerald-400 text-xs font-bold mb-1">Engajamento Real</span>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-slate-400 text-xs font-bold uppercase mb-2 tracking-widest">Abertura In-App</p>
+                    <div class="flex items-end gap-2">
+                        <h4 class="text-4xl font-black">2.4k+</h4>
+                        <span class="text-slate-500 text-xs font-bold mb-1">Visualizações/Mês</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- MARKET SHARE -->
-        <section class="card">
-            <h2 class="text-xl font-black uppercase mb-2">Market Share: Modelos Ativos</h2>
-            <p class="text-slate-400 text-sm font-bold mb-8">Distribuição de dispositivos reais configurados no Brasil</p>
-            <div class="chart-container">
-                <canvas id="marketChart"></canvas>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <section class="bg-slate-900 text-white rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-            <div class="relative z-10 max-w-2xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-black mb-6 tracking-tighter">Assuma o Topo do Mercado.</h2>
-                <p class="text-slate-400 text-lg mb-10 font-medium">Anuncie o seu equipamento para um público 100% qualificado. Seja o parceiro oficial recomendado dentro da nossa aplicação.</p>
-                <div class="bg-orange-600 text-white px-10 py-5 rounded-2xl font-black text-2xl inline-block shadow-lg shadow-orange-900/50 cursor-pointer hover:bg-orange-500 transition-colors">
+        <!-- RODAPÉ DE CONTATO -->
+        <footer class="flex flex-col md:flex-row justify-between items-center gap-6 py-12">
+            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">&copy; 2026 Eficiente Solutions Intelligence | João Marcos</p>
+            <div class="flex gap-4">
+                <a href="https://wa.me/5583921514706" class="bg-orange-600 hover:bg-orange-500 text-white px-8 py-3 rounded-xl font-extrabold text-sm transition-all shadow-lg shadow-orange-900/40">
                     FALAR COM DESENVOLVEDOR
-                </div>
+                </a>
             </div>
-        </section>
-
-        <footer class="py-10 text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">
-            &copy; 2026 Eficiente Solutions | Cajazeiras - PB
         </footer>
 
     </div>
 
-    <!-- SCRIPT DOS GRÁFICOS (CHART.JS) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Configuração global da fonte para os gráficos
-            Chart.defaults.font.family = "'Inter', sans-serif";
-            Chart.defaults.color = '#64748b';
-            Chart.defaults.font.weight = 'bold';
-
-            // 1. Gráfico Shopee (Área)
-            const ctxShopee = document.getElementById('shopeeChart').getContext('2d');
-            
-            // Criar gradiente
-            let gradientShopee = ctxShopee.createLinearGradient(0, 0, 0, 350);
-            gradientShopee.addColorStop(0, 'rgba(234, 88, 12, 0.5)'); // Laranja forte transparente
-            gradientShopee.addColorStop(1, 'rgba(234, 88, 12, 0.0)'); // Transparente
-
-            new Chart(ctxShopee, {
-                type: 'line',
-                data: {
-                    labels: ['Chocadeira 70', 'Lâmpada', 'Termostato', 'Higrômetro', 'Bandeja'],
-                    datasets: [{
-                        label: 'Cliques',
-                        data: [42, 31, 28, 15, 12],
-                        fill: true,
-                        backgroundColor: gradientShopee,
-                        borderColor: '#ea580c',
-                        borderWidth: 4,
-                        tension: 0.4, // Curva suave
-                        pointBackgroundColor: '#ffffff',
-                        pointBorderColor: '#ea580c',
-                        pointBorderWidth: 3,
-                        pointRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, grid: { borderDash: [5, 5], color: '#f1f5f9' }, border: { display: false } },
-                        x: { grid: { display: false }, border: { display: false } }
-                    }
-                }
-            });
-
-            // 2. Gráfico Market Share (Barras Horizontais)
             const ctxMarket = document.getElementById('marketChart').getContext('2d');
+            
+            // Dados Ordenados Decrescentemente
+            const labels = [
+                'ARTESANAL / DIY',
+                'RURAL CHOCADEIRA', 
+                'INCHOC', 
+                'OUTRAS',
+                'CHOCAMAISTOP', 
+                'ECLOPINTO', 
+                'ECLOVIDA', 
+                'PREMIUM ECOL.', 
+                'CHOCAAVES', 
+                'GOLDEN'
+            ];
+            
+            const data = [62, 30, 24, 18, 13, 8, 7, 6, 5, 2];
+            
+            const colors = [
+                '#94a3b8', // Artesanal
+                '#3b82f6', // Rural
+                '#10b981', // Inchoc
+                'rgba(255, 255, 255, 0.05)', // Outras
+                '#f59e0b', // Chocamaistop
+                '#8b5cf6', // Eclopinto
+                '#06b6d4', // Eclovida
+                '#f43f5e', // Premium Ecol
+                '#a855f7', // Chocaaves
+                '#ea580c'  // GOLDEN
+            ];
+
             new Chart(ctxMarket, {
                 type: 'bar',
                 data: {
-                    labels: ['Artesanal / Outras', 'ChocaMaisTop', 'Eclopinto', 'Premium Ecol.', 'CHOCAAVES'],
+                    labels: labels,
                     datasets: [{
-                        label: 'Dispositivos',
-                        data: [45, 38, 22, 18, 6],
-                        backgroundColor: ['#94a3b8', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'],
-                        borderRadius: 8,
-                        barPercentage: 0.7
+                        label: 'Usuários Ativos por Marca',
+                        data: data,
+                        backgroundColor: colors,
+                        borderColor: 'rgba(255,255,255,0.1)',
+                        borderWidth: 1,
+                        borderRadius: 12
                     }]
                 },
                 options: {
-                    indexAxis: 'y', // Faz o gráfico de barras ser horizontal
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#1e293b',
+                            titleFont: { size: 14, weight: 'bold' },
+                            padding: 12,
+                            cornerRadius: 10,
+                            displayColors: false
+                        }
+                    },
                     scales: {
-                        x: { display: false, grid: { display: false } },
-                        y: { grid: { display: false }, border: { display: false } }
+                        y: { 
+                            beginAtZero: true, 
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { color: '#64748b', font: { size: 10 } }
+                        },
+                        x: { 
+                            grid: { display: false },
+                            ticks: { 
+                                color: '#f8fafc', 
+                                font: { weight: 'bold', size: 9 },
+                                autoSkip: false,
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
                     }
                 }
             });
@@ -269,5 +249,3 @@
     </script>
 </body>
 </html>
-
-
